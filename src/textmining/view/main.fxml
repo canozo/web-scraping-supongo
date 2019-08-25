@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="textmining.controller.mainController">
+   <children>
+      <VBox prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <MenuBar>
+              <menus>
+                <Menu mnemonicParsing="false" text="Hola">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Hola" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Ayuda">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Enserio necesito ayuda" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <HBox prefHeight="660.0" prefWidth="1280.0">
+               <children>
+                  <VBox prefHeight="339.0" prefWidth="634.0">
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="54.0" text="Input">
+                           <padding>
+                              <Insets bottom="10.0" />
+                           </padding>
+                        </Label>
+                        <TextArea id="inputTA" fx:id="inputTA" prefHeight="633.0" prefWidth="622.0">
+                           <padding>
+                              <Insets bottom="5.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets right="2.0" />
+                           </VBox.margin>
+                        </TextArea>
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </VBox>
+                  <Separator orientation="VERTICAL" prefHeight="650.0" prefWidth="0.0" />
+                  <VBox prefHeight="400.0" prefWidth="638.0">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="54.0" text="Output">
+                           <padding>
+                              <Insets bottom="10.0" />
+                           </padding>
+                        </Label>
+                        <TextArea id="outputTA" fx:id="outputTA" prefHeight="627.0" prefWidth="628.0">
+                           <padding>
+                              <Insets bottom="5.0" />
+                           </padding>
+                        </TextArea>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <Button id="beginBTN" fx:id="beginBTN" mnemonicParsing="false" onAction="#begin" prefHeight="25.0" prefWidth="926.0" text="Procesar">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="550.0" right="550.0" top="10.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
