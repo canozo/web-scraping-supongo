@@ -7,6 +7,7 @@ import textmining.Cleaner;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.StringReader;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -22,7 +23,8 @@ public class mainController implements Initializable {
 
     public void begin() {
         try {
-            Cleaner cleaner = new Cleaner(new FileReader(Cleaner.archivoInput));
+            StringReader input = new StringReader(inputTA.getText());
+            Cleaner cleaner = new Cleaner(input);
             cleaner.yylex();
             outputTA.setText(cleaner.buffer.toString());
         } catch (IOException e) {

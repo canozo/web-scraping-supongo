@@ -20,6 +20,8 @@ public class Cleaner {
   public static final int YYINITIAL = 0;
   public static final int TAG = 2;
   public static final int ENDL = 4;
+  public static final int STYLE = 6;
+  public static final int SCRIPT = 8;
 
   /**
    * ZZ_LEXSTATE[l] is the state in the DFA for the lexical state l
@@ -28,15 +30,17 @@ public class Cleaner {
    * l is of the form l = 2*k, k a non negative integer
    */
   private static final int ZZ_LEXSTATE[] = { 
-     0,  0,  1,  1,  2, 2
+     0,  0,  1,  1,  2,  2,  3,  3,  4, 4
   };
 
   /** 
    * Translates characters to character classes
    */
   private static final String ZZ_CMAP_PACKED = 
-    "\11\0\1\2\1\1\1\5\1\5\1\1\22\0\1\2\16\0\1\4"+
-    "\14\0\1\3\1\0\1\6\106\0\1\5\u1fa2\0\1\5\1\5\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\udfe6\0";
+    "\11\0\1\2\1\1\1\16\1\16\1\1\22\0\1\2\16\0\1\15"+
+    "\14\0\1\3\1\0\1\17\44\0\1\11\1\0\1\10\3\0\1\13"+
+    "\2\0\1\7\3\0\1\14\1\0\1\12\1\4\1\5\4\0\1\6"+
+    "\13\0\1\16\u1fa2\0\1\16\1\16\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\udfe6\0";
 
   /** 
    * Translates characters to character classes
@@ -49,11 +53,12 @@ public class Cleaner {
   private static final int [] ZZ_ACTION = zzUnpackAction();
 
   private static final String ZZ_ACTION_PACKED_0 =
-    "\3\0\1\1\1\2\1\3\1\4\1\5\1\6\1\7"+
-    "\1\6\1\10\1\11\1\12\1\4";
+    "\5\0\1\1\1\2\1\3\1\4\1\5\1\6\1\7"+
+    "\1\6\1\10\1\11\1\12\2\6\1\0\1\4\16\0"+
+    "\1\13\3\0\1\14\2\0";
 
   private static int [] zzUnpackAction() {
-    int [] result = new int[15];
+    int [] result = new int[41];
     int offset = 0;
     offset = zzUnpackAction(ZZ_ACTION_PACKED_0, offset, result);
     return result;
@@ -78,11 +83,15 @@ public class Cleaner {
   private static final int [] ZZ_ROWMAP = zzUnpackRowMap();
 
   private static final String ZZ_ROWMAP_PACKED_0 =
-    "\0\0\0\7\0\16\0\25\0\34\0\43\0\52\0\25"+
-    "\0\25\0\61\0\70\0\25\0\25\0\77\0\25";
+    "\0\0\0\20\0\40\0\60\0\100\0\120\0\140\0\160"+
+    "\0\200\0\120\0\120\0\220\0\240\0\120\0\120\0\260"+
+    "\0\300\0\320\0\340\0\120\0\360\0\u0100\0\u0110\0\u0120"+
+    "\0\u0130\0\u0140\0\u0150\0\u0160\0\u0170\0\u0180\0\u0190\0\u01a0"+
+    "\0\u01b0\0\u01c0\0\120\0\u01d0\0\u01e0\0\u01f0\0\120\0\240"+
+    "\0\u0200";
 
   private static int [] zzUnpackRowMap() {
-    int [] result = new int[15];
+    int [] result = new int[41];
     int offset = 0;
     offset = zzUnpackRowMap(ZZ_ROWMAP_PACKED_0, offset, result);
     return result;
@@ -105,13 +114,21 @@ public class Cleaner {
   private static final int [] ZZ_TRANS = zzUnpackTrans();
 
   private static final String ZZ_TRANS_PACKED_0 =
-    "\1\4\1\5\1\6\1\7\1\4\1\10\1\4\1\11"+
-    "\1\12\2\11\1\13\1\10\1\14\1\15\1\12\1\16"+
-    "\2\15\1\10\1\15\10\0\1\5\7\0\1\6\10\0"+
-    "\1\17\3\0\1\12\13\0\1\14\2\0\1\16\4\0";
+    "\1\6\1\7\1\10\1\11\12\6\1\12\1\6\1\13"+
+    "\1\14\13\13\1\15\1\12\1\16\1\17\1\14\1\20"+
+    "\13\17\1\12\1\17\1\13\1\14\1\13\1\21\12\13"+
+    "\1\12\2\13\1\14\1\13\1\22\12\13\1\12\1\13"+
+    "\21\0\1\7\20\0\1\10\21\0\1\23\10\0\1\24"+
+    "\3\0\1\14\35\0\1\16\2\0\1\20\32\0\1\25"+
+    "\17\0\1\26\7\0\1\27\3\0\1\30\12\0\1\31"+
+    "\17\0\1\32\21\0\1\33\23\0\1\34\12\0\1\35"+
+    "\23\0\1\36\15\0\1\37\23\0\1\40\12\0\1\41"+
+    "\23\0\1\42\15\0\1\43\23\0\1\44\12\0\1\45"+
+    "\23\0\1\46\11\0\1\47\22\0\1\50\23\0\1\51"+
+    "\10\0\1\50\12\0";
 
   private static int [] zzUnpackTrans() {
-    int [] result = new int[70];
+    int [] result = new int[528];
     int offset = 0;
     offset = zzUnpackTrans(ZZ_TRANS_PACKED_0, offset, result);
     return result;
@@ -149,10 +166,11 @@ public class Cleaner {
   private static final int [] ZZ_ATTRIBUTE = zzUnpackAttribute();
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
-    "\3\0\1\11\3\1\2\11\2\1\2\11\1\1\1\11";
+    "\5\0\1\11\3\1\2\11\2\1\2\11\3\1\1\0"+
+    "\1\11\16\0\1\11\3\0\1\11\2\0";
 
   private static int [] zzUnpackAttribute() {
-    int [] result = new int[15];
+    int [] result = new int[41];
     int offset = 0;
     offset = zzUnpackAttribute(ZZ_ATTRIBUTE_PACKED_0, offset, result);
     return result;
@@ -252,7 +270,7 @@ public class Cleaner {
     char [] map = new char[0x110000];
     int i = 0;  /* index in packed string  */
     int j = 0;  /* index in unpacked array */
-    while (i < 72) {
+    while (i < 104) {
       int  count = packed.charAt(i++);
       char value = packed.charAt(i++);
       do map[j++] = value; while (--count > 0);
@@ -619,22 +637,22 @@ public class Cleaner {
             { buffer.append(yytext());
             } 
             // fall through
-          case 11: break;
+          case 13: break;
           case 2: 
             { yybegin(ENDL);
             } 
             // fall through
-          case 12: break;
+          case 14: break;
           case 3: 
             { buffer.append(' ');
             } 
             // fall through
-          case 13: break;
+          case 15: break;
           case 4: 
             { yybegin(TAG);
             } 
             // fall through
-          case 14: break;
+          case 16: break;
           case 5: 
             { System.out.println("Error!");
   System.out.println("Linea " + yyline);
@@ -644,22 +662,22 @@ public class Cleaner {
   throw new Error("Error, caracter ilegal!");
             } 
             // fall through
-          case 15: break;
+          case 17: break;
           case 6: 
             { /* skip texto dentro del tag */
             } 
             // fall through
-          case 16: break;
+          case 18: break;
           case 7: 
             { /* skip saltos de linea */
             } 
             // fall through
-          case 17: break;
+          case 19: break;
           case 8: 
             { yybegin(YYINITIAL);
             } 
             // fall through
-          case 18: break;
+          case 20: break;
           case 9: 
             { if (buffer.length() > 0 && buffer.charAt(buffer.length() - 1) != '\n') {
               buffer.append('\n');
@@ -668,12 +686,22 @@ public class Cleaner {
           yybegin(YYINITIAL);
             } 
             // fall through
-          case 19: break;
+          case 21: break;
           case 10: 
             { /* skip espacios */
             } 
             // fall through
-          case 20: break;
+          case 22: break;
+          case 11: 
+            { yybegin(STYLE);
+            } 
+            // fall through
+          case 23: break;
+          case 12: 
+            { yybegin(SCRIPT);
+            } 
+            // fall through
+          case 24: break;
           default:
             zzScanError(ZZ_NO_MATCH);
         }

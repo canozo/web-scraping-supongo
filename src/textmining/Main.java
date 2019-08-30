@@ -16,7 +16,7 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("view/main.fxml"));
         Parent root = loader.load();
         primaryStage.setTitle("Text Mining");
-        primaryStage.setScene(new Scene(root, 1280, 720));
+        primaryStage.setScene(new Scene(root, 1200, 650));
         primaryStage.show();
     }
 

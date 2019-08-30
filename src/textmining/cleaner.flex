@@ -10,6 +10,8 @@ package textmining;
 %class Cleaner
 %state TAG
 %state ENDL
+%state STYLE
+%state SCRIPT
 
 %{
   public static String archivoInput = "inputs/home.html";
@@ -25,6 +27,11 @@ espacios = [ \t]+
 %%
 
 <YYINITIAL> {
+  "<style"   { yybegin(STYLE); }
+  "<script"  { yybegin(SCRIPT); }
+  "<"        { yybegin(TAG); }
+  "<"        { yybegin(TAG); }
+
   "<"        { yybegin(TAG); }
   "</"       { yybegin(TAG); }
   {endline}  { yybegin(ENDL); }
@@ -49,6 +56,18 @@ espacios = [ \t]+
           yypushback(yylength());
           yybegin(YYINITIAL);
       }
+}
+
+<STYLE> {
+  "</style>"  { yybegin(YYINITIAL); }
+  {endline}   { /* skip saltos de linea */ }
+  .           { /* skip texto dentro del tag */ }
+}
+
+<SCRIPT> {
+  "</script>" { yybegin(YYINITIAL); }
+  {endline}   { /* skip saltos de linea */ }
+  .           { /* skip texto dentro del tag */ }
 }
 
 [^] {
